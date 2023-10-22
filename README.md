@@ -1,6 +1,6 @@
-# PHP-Todo-App
+## PHP-Todo-App
 
- Todo App -- Todo List
+ #Todo App -- Todo List
 
    * Folder and Routing Structure
    * Theme Integration
@@ -8,17 +8,17 @@
    * Database Tables
    * Login Process
 
-   Todo Categories
-    * Listing
-    * Adding
-    * Updating
-    * Deleting
+  # Todo Categories
+   > Listing
+   > Adding
+   > Updating
+   > Deleting
 
-   Todo Tasks
-    * Listing
-    * Adding
-    * Updating
-    * Deleting
+   #Todo Tasks
+   * Listing
+   * Adding
+   * Updating
+   * Deleting
 
-   Todo Statistics
+  # Todo Statistics
 
