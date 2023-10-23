@@ -1,0 +1,6 @@
+<?php
+$lang = [
+    'title' => 'Title',
+
+
+];

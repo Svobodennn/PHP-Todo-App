@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+# !-f ensures that the rule doesn't apply if the request is for an existing file.
+RewriteCond %{REQUEST_FILENAME} !-d
+# !-d ensures that the rule doesn't apply if the request is for an existing directory.
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]
+
+# QSA is used to append any existing query parameters to the rewritten URL.
+# L is used to stop processing further rules if this one is matched.
