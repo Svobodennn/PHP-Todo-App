@@ -1,8 +1,11 @@
 <?php
+session_start();
+require __DIR__.'/config/config.php';
 foreach (glob(__DIR__.'/helpers/*.php') as $file ){
     require $file;
 }
-$config['route'] = 'home';
+
+$config['route'][0] = 'home';
 $config['lang'] = 'en';
 
 if (isset($_GET['route'])) {
@@ -13,21 +16,25 @@ if (isset($_GET['route'])) {
 }
 
 if (isset($result['lang'])) {
-    if (file_exists(__DIR__ . '/language/' . $result['lang'] . '.php')) {
+    if (file_exists(BASEDIR . '/language/' . $result['lang'] . '.php')) {
         $config['lang'] = $result['lang'];
     } else {
         $config['lang'] = 'en';
     }
 }
 
+if (isset($result['route'])){
 $config['route'] = explode('/',$result['route']);
+}
 
-if (file_exists(__DIR__.'/Controller/'.$config['route'][0].'.php')){
-    require __DIR__.'/Controller/'.$config['route'][0].'.php';
+require BASEDIR . '/language/' . $config['lang'] . '.php';
+
+
+if (file_exists(BASEDIR.'/Controller/'.$config['route'][0].'.php')){
+    require BASEDIR.'/Controller/'.$config['route'][0].'.php';
 } else {
     echo "Page not found";
 }
 
 
 
-require __DIR__ . '/language/' . $config['lang'] . '.php';
