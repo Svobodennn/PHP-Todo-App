@@ -12,6 +12,7 @@
 
                 <form action="<?= URL.'en/login' ?>" method="post">
                     <div class="input-group mb-3">
+                        <?= get_session('error') ?>
                         <input type="email" class="form-control" name="mail" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
