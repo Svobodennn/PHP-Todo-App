@@ -54,13 +54,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= url('todo/add') ?>" class="nav-link active">
+                            <a href="<?= url('todos/add') ?>" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add New</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= url('todo/list') ?>" class="nav-link">
+                            <a href="<?= url('todos') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
@@ -77,13 +77,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= url('category/add') ?>" class="nav-link">
+                            <a href="<?= url('categories/add') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add New</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= url('category/list') ?>" class="nav-link">
+                            <a href="<?= url('categories') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
