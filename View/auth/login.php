@@ -9,11 +9,13 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg"><?= lang('Sign in to start your session') ?></p>
-
+                <?php
+                echo get_session('message') != false ?  '<div class="alert alert-danger">'.get_session('message').'</div>' : null;
+                add_session('message',false);
+                ?>
                 <form action="<?= URL.'en/login' ?>" method="post">
                     <div class="input-group mb-3">
-                        <?= get_session('error') ?>
-                        <input type="email" class="form-control" name="mail" placeholder="Email">
+                        <input type="email" class="form-control" name="mail" placeholder="Email" value="<?= $_SESSION['post']['mail'] ?? null ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -21,7 +23,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password" value="<?= $_SESSION['post']['password'] ?? null ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -65,3 +67,11 @@
 <script src=" <?= assets('js/adminlte.min.js') ?> "></script>
 </body>
 </html>
+
+<?php
+if (isset($_SESSION['message'])){
+    $_SESSION['message'] = null;
+}
+if (isset($_SESSION['post'])){
+    $_SESSION['post'] = null;
+}?>
