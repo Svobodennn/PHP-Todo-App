@@ -10,6 +10,7 @@ function route($index)
 
 function view($viewName, $pageData = [])
 {
+    global $config;
     $data = $pageData;
     if (file_exists(BASEDIR . '/View/' . $viewName . '.php')) {
         require BASEDIR . '/View/' . $viewName . '.php';
@@ -70,4 +71,26 @@ function get_cookie($index)
         return htmlspecialchars(trim($_COOKIE[$index]));
     } else
         return false;
+}
+
+function model($modelName, $pageData = [], $data_process = null)
+{
+    global $db;
+    $process = $data_process;
+    $data = $pageData;
+    if (file_exists(BASEDIR . '/Model/' . $modelName . '.php')) {
+        $result = require BASEDIR . '/Model/' . $modelName . '.php';
+        return $result;
+    } else
+        return false;
+}
+
+function redirect($link){
+    global $config;
+    header('Location:'.url($link));
+}
+
+function url($url){
+    global $config;
+    return URL.$config['lang'].'/'.$url;
 }
