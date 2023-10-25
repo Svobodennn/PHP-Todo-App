@@ -98,7 +98,7 @@ view('static/header');
                                     <div class="form-group">
                                         <label for="title">Title</label>
                                         <?php
-                                        echo get_session('error') ?
+                                        echo $_SESSION['error']['type'] != NULL ?
                                             '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>'
                                             :
                                             null
