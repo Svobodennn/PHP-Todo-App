@@ -77,7 +77,7 @@ view('static/header');
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <?php view('static/sidebar') ?>
+    <?php view('static/sidebar'); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper p-3">
@@ -86,98 +86,50 @@ view('static/header');
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <h3>Todo</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                    <div class="col-lg-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Categories</h3>
 
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <div class="card-tools">
+                                    <div class="pagination pagination-sm float-right">
+                                        <a href="<?= url('categories/add') ?>" class="btn btn-sm btn-dark">Add</a>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Title</th>
+                                        <th>Created Date</th>
+                                        <th>Updated Date</th>
+                                        <th style="width: 40px">Operation</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($data as $key => $value): ?>
+                                    <tr>
+                                        <td><?= $value['id'] ?></td>
+                                        <td><?= $value['title'] ?></td>
+                                        <td><?= $value['created_date'] ?></td>
+                                        <td><?= $value['updated_date'] ?></td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <a class="btn btn-sm btn-danger" href="<?= url('categories/remove/'.$value['id']) ?>">Remove</a>
+                                                <a class="btn btn-sm btn-warning" href="<?= url('categories/edit/'.$value['id']) ?>">Edit</a>
+                                                <a class="btn btn-sm btn-primary" href="<?= url('categories/view/'.$value['id']) ?>">View</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-
-                        <div class="card card-primary card-outline">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div><!-- /.card -->
-                    </div>
-                    <div class="col-lg-4">
-                        <h3>Ongoing</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div>
-
-                        <div class="card card-primary card-outline">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div><!-- /.card -->
-                    </div>
-                    <div class="col-lg-4">
-                        <h3>Completed</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div>
-
-                        <div class="card card-primary card-outline">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div><!-- /.card -->
                     </div>
                 </div>
             </div>
