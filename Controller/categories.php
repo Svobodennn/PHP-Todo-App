@@ -5,38 +5,35 @@ if (!get_session('login')) {
 
 if (route(0) === 'categories' && !route(1)) {
 
-//    if (isset($_POST['submit'])) {
-//        $_SESSION['post'] = $_POST;
-//
-//        $mail = post('mail');
-//        $password = post('password');
-//        $result = model('auth/login', ['mail' => $mail, 'password' => $password], 'login');
-//
-//        if ($result['success']) {
-//            redirect('home');
-//        } else {
-//            add_session('message', $result['message']);
-//        }
-//    }
+    $result = model('categories', [], 'list');
+    view('categories/categories', $result['data']);
 
-    view('categories/categories');
-} elseif (route(0) === 'categories' && route(1) === "add") {
+}
+elseif (route(0) === 'categories' && route(1) === "add") {
 
-        if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
         $_SESSION['post'] = $_POST;
 
         $title = post('title');
-        $result = model('categories', ['title' => $title],'add');
+        $result = model('categories', ['title' => $title], 'add');
 
-        add_session('error',[
-            'message' => $result['message'] ?? '',
-            'type' => $result['type'] ?? ''
+        add_session('error', [
+            'message' => $result['message'] ?? null,
+            'type' => $result['type'] ?? null
         ]);
     }
 
 
     view('categories/add');
 
-}elseif (route(0) === 'categories' && route(1) === "edit" && is_numeric(route(2))) {
+}
+elseif (route(0) === 'categories' && route(1) === "edit" && is_numeric(route(2))) {
+
+
+    view('categories/edit');
+}
+elseif (route(0) === 'categories' && route(1) === "remove" && is_numeric(route(2))) {
+
+    $result = model('categories', ['category_id' => route(2)], 'list');
     view('categories/edit');
 }
