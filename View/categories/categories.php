@@ -99,6 +99,12 @@ view('static/header');
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-0">
+                                <?php
+                                echo $_SESSION['error']['type'] != NULL ?
+                                    '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>'
+                                    :
+                                    null
+                                ?>
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -154,3 +160,14 @@ view('static/header');
 <script src=" <?= assets('js/adminlte.min.js') ?> "></script>
 </body>
 </html>
+
+
+<?php
+
+if (isset($_SESSION['error']['message'])){
+    $_SESSION['error']['message'] = null;
+}
+if (isset($_SESSION['error']['type'])){
+    $_SESSION['error']['type'] = null;
+}
+?>
