@@ -49,4 +49,5 @@ if (file_exists(BASEDIR . '/Controller/' . $config['route'][0] . '.php')) {
 }
 
 
-
+//if (isset($_SESSION['error'])) $_SESSION['error'] = null;
+//if (isset($_SESSION['post'])) $_SESSION['post'] = null;
