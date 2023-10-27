@@ -126,7 +126,6 @@ view('static/header');
                                             <div class="btn-group btn-group-sm">
                                                 <a class="btn btn-sm btn-danger" href="<?= url('categories/remove/'.$value['id']) ?>">Remove</a>
                                                 <a class="btn btn-sm btn-warning" href="<?= url('categories/edit/'.$value['id']) ?>">Edit</a>
-                                                <a class="btn btn-sm btn-primary" href="<?= url('categories/view/'.$value['id']) ?>">View</a>
                                             </div>
                                         </td>
                                     </tr>
