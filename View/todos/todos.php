@@ -131,7 +131,9 @@ view('static/header');
                                             <span class="badge bg-primary"><?=$value['progress']?>%</span>
                                         </td>
                                         <td>
-                                            <span class="badge bg-<?=$value['status'] == 'a' ? 'success' : 'danger'?>"><?=$value['status'] == 'a' ? 'Active' : 'Passive'?></span>
+                                            <span class="badge bg-<?= status($value['status'])['badge'] ?>">
+                                                <?= status($value['status'])['title'] ?>
+                                            </span>
                                         </td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
