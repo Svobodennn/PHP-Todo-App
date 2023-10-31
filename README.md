@@ -1,13 +1,20 @@
 # PHP-Todo-App
 
- ## Todo App -- Todo List
+ ## Todo App
 
    * Folder and Routing Structure
+   * MVC Structure
+   * Multilingual Support
    * Theme Integration
-   * Database Connection
+   * Database Operations
    * Database Tables
-   * Login Process
-
+   * Login Operations
+   * Profile and Password Update Operations
+   * FullCalendar API Interation
+   * Timeline Display
+   * Statistics
+   * Password Validation
+   * Bootstrap, AdminLTE, Jquery
   ## Todo Categories
    * Listing
    * Adding
@@ -33,14 +40,14 @@
   > * created_date
   > * updated_date
   
-  ### TodoCategories
+  ### Categories
   > * id
   > * user_id
   > * title
   > * created_date
   > * updated_date
 
-  ### Todo
+  ### Todos
   > * id
   > * user_id
   > * category_id
@@ -51,3 +58,5 @@
   > * start_date
   > * created_date
   > * updated_date
+  > * progress
+  > * status
