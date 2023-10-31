@@ -126,6 +126,7 @@ view('static/header');
                                             <select class="form-control" name="status" id="status">
                                                 <option <?= $data['status'] == 'a' ? "selected='selected'" : null ?> value="a">Active</option>
                                                 <option <?= $data['status'] == 'p' ? "selected='selected'" : null ?> value="p">Passive</option>
+                                                <option <?= $data['status'] == 'o' ? "selected='selected'" : null ?> value="o">Ongoing</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
