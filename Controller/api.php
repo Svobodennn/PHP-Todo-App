@@ -177,13 +177,12 @@ elseif (route(1) === 'edittodo') {
     }
 
 
-
 }
-elseif (route(1) === 'removetodo'){
+elseif (route(1) === 'removetodo') {
 
     $post = filter($_POST);
 
-    if (!$post['id']){
+    if (!$post['id']) {
         $status = 'error';
         $title = 'Oops!';
         $msg = 'An unexpected error occurred. Please refresh your page and try again.';
@@ -213,4 +212,27 @@ elseif (route(1) === 'removetodo'){
         exit();
     }
 
+}
+elseif (route(1) === 'calendar') {
+
+   $start = get('start');
+   $end = get('end');
+
+    $sql = "
+       Select id,
+       title,
+       color,
+       start_date as start, 
+       end_date as end, 
+       CONCAT('/PHP-Todo-App/en/todos/edit/',todos.id) as url 
+       from todos where user_id= :user_id";
+
+    if ($start && $end){
+        $sql .= " && start_date BETWEEN '$start' AND '$end' OR end_date BETWEEN '$start' AND '$end' ";
+    }
+
+    $q = $db->prepare($sql);
+    $q->execute(['user_id' => get_session('id')]);
+    $result = $q->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($result);
 }
