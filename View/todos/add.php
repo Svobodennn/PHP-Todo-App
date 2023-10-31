@@ -123,11 +123,12 @@ view('static/header');
                                             <select name="status" id="status">
                                                 <option value="a">Active</option>
                                                 <option value="p">Passive</option>
+                                                <option value="o">Ongoing</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="progress">Progress</label>
-                                            <input name="progress" id="progress" class="custom-range" type="range" min="0" max="100">
+                                            <input name="progress" id="progress" class="custom-range" value="0" type="range" min="0" max="100">
                                         </div>
                                         <div class="form-group">
                                             <label for="color">Color</label>
